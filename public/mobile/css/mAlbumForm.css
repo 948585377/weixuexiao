@@ -1,0 +1,147 @@
+@CHARSET "UTF-8";
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {margin:0;padding:0;font-family:"微软雅黑";}
+ul,ol,li{list-style:none;}
+a{text-decoration:none;}
+.all{width:100%;}
+.cl{clear:both;}
+body{background: #fff;}
+html,body,.all{
+	height: 100%;
+}
+.album-title{
+	width: 95.2%;
+	height: 5.5%;
+	padding: 3% 0;
+	margin: 0 2.4%;
+	border-bottom: 1px solid #e7e7eb;
+}
+.album-title .album-title-left{
+	float: left;
+	width: 60.5%;
+	margin-right: 15%; 
+	margin-top: 2.1%;
+}
+.album-name{
+	color: #7f7f7f;
+}
+.album-total{
+	color: #b4b4b4;
+}
+.album-title .album-title-right{
+	height: 100%;
+	float: right;
+	width: 24.5%;
+}
+.album-button{
+	color: #ffffff;
+	height: 100%;
+	width: 100%;
+	border: none;
+	background-color: #14c682;
+	font-weight: 600;
+	border-radius: 5px;
+}
+.album-info{
+	margin: 3.3% 2.4%;
+	font-size: 14px;
+}
+.album-class{
+	color: #808080;
+	margin-right: 2.4%;
+}
+.album-time{
+	color: #b2b2b2;
+}
+.album-box{
+	margin: 0 2.4%;
+}
+.album-box .album-imageBox{
+	float: left;
+	margin:0 0 1% 0;
+	width:24%;
+	position:relative;
+}
+.album-box .imageBox-margin{
+	margin-right: 1.3%;
+}
+
+.image-mask{
+	height:100%; 
+	width:100%; 
+	position:absolute; 
+	_position:absolute; 
+	top:0; 
+	z-index:2;
+	opacity:0.5; 
+	filter: alpha(opacity=30); 
+	background-color:#808080;
+	display: none;
+}
+.image-check{
+	background: url(http://weimeizhan.oss-cn-shenzhen.aliyuncs.com/public/mobile/img/icon-checked.png);
+	top: 5%;
+	right: 6.7%;
+	z-index: 3;
+	position:absolute;
+	width: 25%;
+	height: 25%;
+	background-size: 100% 100%;
+	display: none;
+}
+/* 图片自适应 */
+.div-imgMask{overflow: hidden;}
+.img-adaptive{
+	display: inline-block;
+  	height: auto;
+  	max-width: 100%;
+}
+.album-bottom{
+	margin: 0 2.4%;
+	bottom: 0;
+	padding-bottom:2px;
+	padding-top:2px;
+	background-color:#fff;
+  	position: fixed;
+  	width: 95.2%;
+}
+.album-bottom .album-btn{
+	border: 1px solid #eaeaea;
+	background-color: #fff;
+	border-radius: 5px;
+	color: #9a9a9a;
+	width: 20%;
+  	padding: 2% 0;
+}
+.album-all-btn{
+	color: #9a9a9a;
+	font-size: 14px;
+	float: right;
+	margin-right: 25px;
+	margin-top: 1%;
+	line-height: 23px;
+}
+.image-all-check{
+  	position: absolute;
+  	width: 19px;
+ 	height: 19px;
+  	margin-left: 3%;
+  	border-radius: 50%;
+  	border: 1px	solid #838383;
+}
+.image-all-checked{
+	background: url(http://weimeizhan.oss-cn-shenzhen.aliyuncs.com/public/mobile/img/icon-checked.png);
+	background-size: 100% 100%;
+	border: none;
+}
+.tags-textBox{width:96%;position:fixed;top:22%;left:2%;z-index:1001;display:none;border-radius:1px;color:#fff;background-color:#fff; }
+.tags-title{padding: 3%;background-color:#14c783;}
+.tags-body{width: 94%;margin: 0 3%;background-color: #fff;}
+.tags-textarea textarea{width:100%;margin: 2.5% 0;float:left;border:none;height:120px;resize:none;overflow:hidden;font-size:16px;background-color: #f3f4f3;border-radius:1px;  font-family: "微软雅黑";}
+.tags-btn button{width:26%;float:right;margin:2.5%;border-radius:3px;border:none;cursor:pointer;}
+.btn-confirm{color:white;background:#14c783;padding: 3%;}
+.btn-cancel{color:#7b7b7b;background:#f3f4f3;border:1px solid #e9e9e9;padding: 3%;}
+.tokenfield{width:100%;margin: 2.5% 0;float:left;border:none;height:120px !important;resize:none;overflow:auto;font-size:16px;background-color: #f3f4f3;border-radius:1px;  font-family: "微软雅黑";}
+.token{background-color: #14c783 !important;color: #fff;height: 25% !important;margin: 5px 2px 5px 5px !important;  line-height: 160%;}
+.tags-textBox .btn-tag{width:23.5%;float:left;margin:1% 0;border-radius:3px;border:1px solid #f6f5f6;cursor:pointer;;padding: 3%;background-color: #fff;color: #999999;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+.tags-textBox .margin-right{margin-right: 2%}
+.discussBg{position:fixed;top:0;left:0;right:0;bottom:0;background:black;z-index:1000;display:none;filter:alpha(opacity=30);-moz-opacity:0.3;-khtml-opacity: 0.3;opacity: 0.3;}

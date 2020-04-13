@@ -1,0 +1,104 @@
+section{
+    width: 100%;
+    height: 100%;
+}
+/*section form div:before{
+    content: "";
+    display: inline-block;
+    width:22px;
+    height:22px;
+    margin-right:4.7%;
+    vertical-align: middle;
+    background: url(../../images/coinmall/collection_address.png) no-repeat;
+    background-size: 78px;
+}*/
+    section form .name, .phone_number, .address, .addressDetails {
+        width: 92%;
+        height: 40px;
+        margin: 0 auto;
+        line-height: 51px;
+        vertical-align: middle;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+.name, .phone_number, .address, .addressDetails {
+    border-bottom: 1px solid #f0f0f2;
+}
+section form div input{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	appearance:none;
+    border: none;
+    width:80%;
+    height: 100%;
+    font-size: 14px; 
+}
+section form .name:before{
+    background-position: 0,0;
+}
+section form .phone_number:before{
+    background-position:-23px 0;
+}
+section form .address:before{
+    background-position:-45px 0;
+}
+section a {
+    width: 80%;
+    height: 34px;
+    margin: 106px auto 0;
+    display: block;
+    color: white;
+    /*font-size: 1.25rem;*/
+    text-align: center;
+    line-height: 34px;
+    background: #06c1ae;
+    border-radius: 17px;
+    color: #fff !important;
+}
+html, body {
+    background-color:#fff !important;
+}
+#province, #city, #county {
+    background: url(../../images/teacher_down_arrow2.png) no-repeat;
+    background-size: 12px auto;
+    background-position: 90% center;
+    width: 1.4rem;
+    margin-right: 0.1rem;
+    font-size: 0.28rem;
+    line-height: 32px;
+    height: 32px;
+    border: none;
+    outline: none;
+    border: 1px solid #f0f0f2;
+    border-radius: 5px;
+}
+
+.pageInfo {
+    width: 92%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #333333;
+    margin: 0 auto;
+    border-bottom: 1px solid #f0f0f2;
+}
+
+.titleDescribe {
+    display: inline-block;
+    width: 60px;
+}
+
+.addressDetails #address {
+    padding: 0;
+}
+
+#province {
+    margin-left: 6px;
+}

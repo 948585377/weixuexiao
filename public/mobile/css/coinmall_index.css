@@ -1,0 +1,278 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0; }
+
+body, h1, h2, h3, h4, h5, p, table, ul, li, textarea, select, input, a {
+  padding: 0;
+  margin: 0;
+  outline-style: none;
+  -webkit-tap-highlight-color: transparent; }
+
+body {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  font-family: Helvetica,"微软雅黑"; }
+
+html {
+  width: 100%;
+  height: 100%;
+  position: relative; }
+
+html, body {
+  background-color: #f0f0f2; }
+
+ul li {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+a, input, select, button, img {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  border-radius: 0; }
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none; }
+
+img {
+  vertical-align: top; }
+
+.goods_img_wrap {
+  height:7.5rem;
+  overflow: hidden;
+  width: 7.5rem; }
+  .goods_img_wrap img {
+    width: 100%;
+    height: 100%; }
+
+.pull_left {
+  float: left; }
+
+.pull_right {
+  float: right; }
+
+.blank_10 {
+  height: 0.1rem;
+  background-color: #fff;
+  font-size: 0; }
+
+.blank_100 {
+  height: 1.2rem;
+  font-size: 0; }
+
+.goods_info_wrap {
+  background-color: #fff;
+  padding: 0.1rem 0.2rem 0 0.3rem; }
+  .goods_info_wrap .goods_info_title {
+    height: 0.62rem;
+    line-height: 0.62rem;
+    color: #333;
+    overflow: hidden; }
+    .goods_info_wrap .goods_info_title div {
+      font-size: 0.28rem;
+      float: left; }
+    .goods_info_wrap .goods_info_title i {
+      font-size: 0.24rem;
+      color: #999;
+      float: right;
+      font-style: normal; }
+    .goods_info_wrap .goods_info_title h3 {
+      font-size: 0.28rem;
+      border-bottom: 1px solid #ccc;
+      font-weight: normal; }
+  .goods_info_wrap .goods_info_price {
+    min-height: 0.28rem;
+    line-height: 0.44rem;
+    color: #333;
+    font-size: 0.28rem; }
+    .goods_info_wrap .goods_info_price span {
+      color: #ff6665; }
+    .goods_info_wrap .goods_info_price a {
+      font-size: 0.22rem;
+      text-decoration: line-through;
+      color: #999;
+      margin-left: 0.3rem; }
+    .goods_info_wrap .goods_info_price strong {
+      font-weight: normal; }
+.goods_info_price img {
+    width:100%;
+}
+ 
+ 
+
+.footer_wrap {
+  height: 1.0rem;
+  line-height: 1.0rem;
+  color: #666;
+  font-size: 0.26rem;
+  overflow: hidden;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box; }
+  .footer_wrap div {
+    padding: 0 0.2rem 0 0.2rem; }
+  .footer_wrap span {
+    color: #ff6665; }
+  .footer_wrap button {
+    width: 2.5rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    font-size: 0.32rem;
+    margin: 0.15rem 0;
+    background-color: #06cea1;
+    border-radius: 0.35rem 0.35rem;
+    color: #fff;
+    text-align: center;
+    float: right; }
+  .footer_wrap .had_receive {
+    background-color: #ccc; }
+
+
+
+.goods_list_info {
+  background-color: #fff;
+  padding: 0.2rem 0.3rem 0.3rem; }
+  .goods_list_info .title_info {
+    font-size: 0.28rem;
+    color: #333;
+    line-height: 0.5rem; }
+  .goods_list_info .goods_list_inner {
+    overflow: hidden;
+    height: 1.2rem; }
+    .goods_list_info .goods_list_inner .goods_img {
+      float: left;
+      width: 1.2rem;
+      height: 1.2rem; 
+       box-sizing:border-box;
+      border:1px solid #f0f0f2;
+    }
+      .goods_list_info .goods_list_inner .goods_img img {
+        width: 100%;
+        height: 100%; }
+    .goods_list_info .goods_list_inner .goods_change_condition {
+      padding-left: 1.5rem; }
+      .goods_list_info .goods_list_inner .goods_change_condition div:nth-child(1) {
+        font-size: 0.26rem;
+        color: #333;
+        overflow: hidden;
+        line-height: 0.6rem; }
+        .goods_list_info .goods_list_inner .goods_change_condition div:nth-child(1) i {
+          float: right;
+          font-style: normal; }
+      .goods_list_info .goods_list_inner .goods_change_condition div:nth-child(2) {
+        font-size: 0.2rem;
+        color: #999;
+        line-height: 0.6rem; }
+        .goods_list_info .goods_list_inner .goods_change_condition div:nth-child(2) span {
+          color: #ff6665;
+          font-size: 0.2rem; }
+
+.send_goods_info {
+  padding: 0 0.2rem;
+  background-color: #fff;
+  margin-top: 0.2rem; }
+  .send_goods_info li {
+    height: 0.9rem;
+    line-height: 0.9rem;
+    color: #333;
+    font-size: 0.26rem;
+    border-bottom: 1px solid #ececec; }
+    .send_goods_info li span {
+      display: inline-block;
+      width: 50%;
+      font-size: 0.26rem; }
+    .send_goods_info li .goods_price {
+      color: #ff6665; }
+    .send_goods_info li span:nth-child(2) {
+      text-align: right; }
+    .send_goods_info li div {
+      padding: 0 0.1rem; }
+  .send_goods_info li:last-child {
+    border: none; }
+
+.order_info_wrap {
+  padding: 0 0.3rem 0.3rem 0.2rem;
+  background-color: #fff;
+  margin-bottom: 0.2rem; }
+  .order_info_wrap .order_title {
+    font-size: 0.28rem;
+    color: #333;
+    line-height: 0.9rem;
+    border-bottom: 1px solid #ececec;
+    margin-bottom: 0.3rem; }
+  .order_info_wrap .user_info {
+    font-size: 0.26rem;
+    line-height: 0.5rem;
+    color: #666; }
+    .order_info_wrap .user_info span:nth-child(1) {
+      display: inline-block;
+      width: 1.3rem; }
+  .order_info_wrap .user_address {
+    font-size: 0.26rem;
+    line-height: 0.5rem;
+    color: #666;
+    padding-left: 1.3rem;
+    background: url(../../images/coinmall/default_address.png) no-repeat;
+    background-size: 0.6rem 0.3rem;
+    background-position: 0 0.1rem; }
+  .order_info_wrap .order_info {
+    line-height: 0.5rem;
+    font-size: 0.26rem;
+    color: #666;
+    overflow: hidden; }
+    .order_info_wrap .order_info span {
+      display: inline-block;
+      float: left; }
+    .order_info_wrap .order_info span:nth-child(1) {
+      display: inline-block;
+      width: 1.3rem;
+      float: left; }
+    .order_info_wrap .order_info span:nth-child(2) {
+      display: inline-block;
+      max-width: 5.7rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    .order_info_wrap .order_info .sending {
+      color: #06cea1; }
+    .order_info_wrap .order_info .sended {
+      color: #ff6665; }
+  .order_info_wrap .order_goods_wrap {
+    overflow: hidden;
+    padding-left: 0.1rem;
+    border-bottom: 1px solid #ececec;
+    overflow: hidden;
+    padding-bottom: 0.2rem; }
+    .order_info_wrap .order_goods_wrap .order_goods:nth-child(1) {
+      width: 1.2rem;
+      height: 1.2rem;
+      float: left; }
+      .order_info_wrap .order_goods_wrap .order_goods:nth-child(1) img {
+        width: 100%;
+        height: 100%; }
+    .order_info_wrap .order_goods_wrap .order_goods:nth-child(2) {
+      padding-left: 1.5rem;
+      font-size: 0.26rem;
+      color: #666;
+      line-height: 0.44rem; }
+      .order_info_wrap .order_goods_wrap .order_goods:nth-child(2) span {
+        float: right; }
+  .order_info_wrap .goods_change_info {
+    padding: 0.2rem 0;
+    font-size: 0.26rem;
+    color: #999;
+    text-align: right;
+    line-height: 0.5rem; }
+
+/*# sourceMappingURL=coinmall_index.css.map */

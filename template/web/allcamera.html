@@ -1,0 +1,516 @@
+{template 'public/header'}
+{template 'public/comhead'}
+{if $operation == 'display'}
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}public/web/css/main.css"/>
+<link rel="stylesheet" href="{MODULE_URL}public/web/css/magnific-popup.css">
+<script>
+require(['bootstrap'],function($){
+	$('.btn,.tips').hover(function(){
+		$(this).tooltip('show');
+	},function(){
+		$(this).tooltip('hide');
+	});
+});
+</script>
+<div class="main">
+<style>
+.form-control-excel {height: 34px;padding: 6px 12px;font-size: 14px;line-height: 1.42857143;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;border-radius: 4px;-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);box-shadow: inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;}
+</style>
+    <div class="panel panel-info">
+        <div class="panel-heading">筛选</div>
+        <div class="panel-body">
+            <form action="./index.php" method="get" class="form-horizontal" role="form">
+                <input type="hidden" name="c" value="site" />
+                <input type="hidden" name="a" value="entry" />
+                <input type="hidden" name="m" value="fm_jiaoyu" />
+                <input type="hidden" name="do" value="allcamera" />
+				<input type="hidden" name="schoolid" value="{$schoolid}" />
+				<div class="form-group">
+					<a style="margin-left:40px;" class="btn btn-primary qx_edit" href="{php echo $this->createWebUrl('allcamera', array('op' => 'post', 'schoolid' => $schoolid))}"><i class="fa fa-plus"></i> 添加画面</a>
+				</div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label" style="width: 100px;">关键字</label>
+                    <div class="col-sm-2 col-lg-2">
+                        <input class="form-control" name="keyword" id="" type="text" value="{$_GPC['keyword']}">
+                    </div>
+<!-- 					<label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label" style="width: 100px;">按班级</label>
+                    <div class="col-sm-2 col-lg-2">
+                        <select style="margin-right:15px;" name="bj_id" class="form-control">
+                            <option value="0">请选择班级搜索</option>
+                            {loop $bj $row}
+                            <option value="{$row['sid']}" {if $row['sid'] == $_GPC['bj_id']} selected="selected"{/if}>{$row['sname']}</option>
+                            {/loop}
+                        </select>
+                    </div> -->					
+                    <div class="col-sm-2 col-lg-2">
+                        <button class="btn btn-default"><i class="fa fa-search"></i>搜索</button>
+                    </div>
+                </div>				
+            </form>
+        </div>
+    </div>
+	<div class="panel panel-default">
+        <div class="table-responsive panel-body" style="overflow: hidden;">
+			<div id="queue-setting-index-body">
+				<div class="viewList">
+				{loop $list $item}
+					<div class="viewBox">
+						<div class="nameAndTime">
+							<span class="name">{$item['name']}</span> 
+							{if $item['videotype'] ==1}<span style="background-color: #e07d1c;border-radius: 5px; color: #f3eeee;font-size: blod;font-weight:bold;">班级</span>{/if}
+							{if $item['videotype'] ==2}<span style="background-color: #41cac0;border-radius: 5px; color: #f3eeee;font-size: blod;font-weight:bold;">公共</span>{/if}
+							<span name="publishdate" >{php echo(date('Y-m-d',$item['createtime']))}</span>
+							<a class="time qx_edit" href="{php echo $this->createWebUrl('allcamera', array('id' => $item['id'], 'op' => 'post', 'schoolid' => $schoolid))}" title="编辑"><span style="cursor:pointer;color:#428bca;">编辑</span></a>	
+								
+						</div>
+						<div class="content">
+							{if $item['allowpy'] ==1}<span class="label label-success">允许评论</span>{else}<span class="label label-danger">禁止评论</span>{/if}	
+						</div>
+						<div class="gallery" style="margin:5px;">
+							<div class="picBox" >
+								<table name="imgTable" width="100%" height="100%" border="1" bordercolor="white">
+									<div class="video" id="video{$item['id']}" data="{$item['videourl']}"></div>
+									<a id="{$item['id']}" onclick="showFlashPlayer({$item['id']});" style="background-image:url({MODULE_URL}public/web/recipe/timg.png);background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;width:100px;height:100px;margin: 60px 75px;position: absolute;"></a>
+									{if $item['is_pay'] ==1}<div class="name ng-binding qx_order" style="position: relative;bottom: -260px;left: 0;width: 100%;line-height: 44px;background: rgba(0,0,0,.5);color: #fff;padding: 0 20px;text-align: left;z-index: 2;">启用单独付费中{if $item['paycunt'] > 0}<a href="{php echo $this->createWebUrl('payall', array('vodid' => $item['id'], 'op' => 'display', 'schoolid' => $schoolid))}"><button style="background-color: #41cac0;border-color: #41cac0;float: right;margin-top: 5px;" type="button" class="btn btn-sm btn-info">已付<span style="color:red">{$item['paycunt']}</span>人</button></a>{/if}</div>{/if}								
+								</table>								
+							</div>	
+							<div class="likeAndDel" style="margin:5px;">
+								<div class="l">							
+									<img alt="" src="{MODULE_URL}public/web/recipe/liked.png" />
+									<span>{$item['dianzan']}</span>
+									<span>评论（{$item['plsl']}）</span>
+									<a class="qx_delete" href="{php echo $this->createWebUrl('allcamera', array('id' => $item['id'], 'op' => 'delete', 'schoolid' => $schoolid))}" onclick="return confirm('此操作不可恢复，并会删除所有与本图文有关的图片和回复数据，确认删除？');return false;" title="删除"><span style="cursor:pointer;color:#428bca;">删除</span></a>
+									&nbsp;
+								</div>						
+								<div class="r">
+									{if $item['plsl'] > 0}<a class="qx_pllist" href="{php echo $this->createWebUrl('allcamera', array('id' => $item['id'], 'op' => 'pllist', 'schoolid' => $schoolid))}"><button type="button" class="btn btn-sm btn-info">查看评论</button></a>{/if}
+								</div>						
+							</div>
+						</div>
+					</div>
+				{/loop}	
+				</div>
+			</div>	
+		</div>
+		&nbsp;{$pager}
+	</div>	
+</div>
+<script src="{MODULE_URL}public/web/js/swfobject.js"></script>
+<script src="{MODULE_URL}public/web/js/html5media.min.js"></script>
+<script>
+$(document).ready(function() {
+	{if !(IsHasQx($tid_global,1000302,1,$schoolid))}
+		$(".qx_edit").hide();
+		
+	{/if}
+	{if !(IsHasQx($tid_global,1000303,1,$schoolid))}
+		$(".qx_delete").hide();
+	{/if}
+	{if (!(IsHasQx($tid_global,1000304,1,$schoolid)) && !(IsHasQx($tid_global,1000305,1,$schoolid)))}
+		$(".qx_pllist").hide();
+	{/if}
+	{if !(IsHasQx($tid_global,1002001,1,$schoolid))}
+		$(".qx_order").hide();
+	{/if}
+});	
+
+function flashChecker() {  
+  var hasFlash = 0;　　　　 //是否安装了flash    
+  var flashVersion = 0;　　 //flash版本    
+  
+  if(document.all) {  
+    var swf = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');  
+    if(swf) {  
+      hasFlash = 1;  
+      VSwf = swf.GetVariable("$version");  
+      flashVersion = parseInt(VSwf.split(" ")[1].split(",")[0]);  
+    }  
+  } else {  
+    if(navigator.plugins && navigator.plugins.length > 0) {  
+      var swf = navigator.plugins["Shockwave Flash"];  
+      if(swf) {  
+        hasFlash = 1;  
+        var words = swf.description.split(" ");  
+        for(var i = 0; i < words.length; ++i) {  
+          if(isNaN(parseInt(words[i]))) continue;  
+          flashVersion = parseInt(words[i]);  
+        }  
+      }  
+    }  
+  }  
+  return { f: hasFlash, v: flashVersion };  
+}  
+function showFlashPlayer(id){
+	var hlsData = $("#video"+id).attr("data");
+	var divname = "#video"+id;
+	$(divname).css({"width": "100%"});
+	var bHeight = $(divname).width() * 9 / 16;
+	$(divname).css("height", bHeight);
+	$("#"+id).hide();
+	//判断是否已安装flash播放插件
+		var fls = flashChecker();  
+		var s = "";  
+		if(!fls.f) {  
+            $(divname).css("background", "#000");
+            $(divname).html("<div style='margin:auto;width: 100%;padding-top:3em;font-size:0.8em;height:50px;text-align:center;color: #888;'>您的浏览器不支持该播放器，推荐使用360极速浏览器</div>");
+            return;
+		} 
+
+	var flashvars = {
+		src: escape(hlsData),
+		plugin_m3u8: "{MODULE_URL}public/web/js/HLSProviderOSMF.swf",
+	};
+	var params = {
+		allowFullScreen: true,
+		allowScriptAccess: "always",
+		bgcolor: "#000000"
+	};
+	var attrs = {
+		name: "video"+id
+	};
+	swfobject.embedSWF(
+		"{MODULE_URL}public/web/js/StrobeMediaPlayback.swf",
+		"video"+id,
+		"100%", "300",
+		"10.2",
+		null, flashvars, params, attrs
+	);
+}
+</script>
+{elseif $operation == 'post'}
+<div class="panel panel-info">
+   <div class="panel-heading"><a class="btn btn-primary" onclick="javascript :history.back(-1);"><i class="fa fa-tasks"></i> 返回</a></div>
+</div>
+<div class="main">
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{$item['id']}" />	
+		<input type="hidden" name="schoolid" value="{$schoolid}" />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                编辑{$logo['videoname']}信息
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">排序</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <input type="text" name="ssort" class="form-control" value="{$item['ssort']}" />
+							<span class="help-block">值越大越靠前</span>
+                        </div>
+                    </div>
+                </div>			
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">{$logo['videoname']}名称</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <input type="text" name="name" class="form-control" value="{$item['name']}" />
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">封面图片</label>
+                    <div class="col-sm-9">					 
+                        {php echo tpl_form_field_image('videopic', $item['videopic'])}		
+                        <span class="help-block">显示在前端视频列表页面，尺寸建议333*120</span>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">推流地址</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="videourl" class="form-control" value="{$item['videourl']}" />
+						{if $_W['isfounder'] || $_W['role'] == 'owner'}<span class="help-block">配置方法见商业群文件</span>{/if}
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">单独收费</label>
+                    <div class="col-sm-9">
+                        <label for="isshow1" class="radio-inline"><input type="radio" name="is_pay" value="1" id="isshow1" {if !empty($item) && $item['is_pay'] == 1}checked="true"{/if} /> 启用</label>
+                        &nbsp;&nbsp;&nbsp
+                        <label for="isshow2" class="radio-inline"><input type="radio" name="is_pay" value="2" id="isshow2"  {if empty($item) || $item['is_pay'] == 2}checked="true"{/if} /> 不启用</label>
+                        <span class="help-block">如启用单独收费,本画面需单独购买,不与缴费项目中关联实时画面功能的收费项目冲突</span>
+                    </div>
+                </div>
+				<div id="credit-status2" {if $item['is_pay'] == 1}style="display:block"{else}style="display:none"{/if}>
+					<div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">单独观看价格</label>
+						<div class="col-sm-2 col-lg-2">
+							<div class="input-group">
+								<span class="input-group-addon">￥</span>
+								<input type="text" name="price_one" class="form-control" value="{$item['price_one']}" />
+							</div>
+							<span class="help-block">首次购买价格</span>
+						</div>		
+						<div class="col-sm-2 col-lg-2">
+							<div class="input-group">
+								<span class="input-group-addon">￥</span>
+								<input type="text" name="price_one_cun" class="form-control" value="{$item['price_one_cun']}" />
+							</div>
+							<span class="help-block">续费价格</span>
+						</div>						
+					</div>					
+					<div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">全家共享价格</label>
+						<div class="col-sm-2 col-lg-2">
+							<div class="input-group">
+								<span class="input-group-addon">￥</span>
+								<input type="text" name="price_all" class="form-control" value="{$item['price_all']}" />
+							</div>
+							<span class="help-block">全家可观看的价格,不设置前端购买时候无购买选项</span>
+						</div>
+						<div class="col-sm-2 col-lg-2">
+							<div class="input-group">
+								<span class="input-group-addon">￥</span>
+								<input type="text" name="price_all_cun" class="form-control" value="{$item['price_all_cun']}" />
+							</div>
+							<span class="help-block">续费价格</span>
+						</div>						
+					</div>
+					{if $_W['isfounder'] || $_W['role'] == 'owner'}
+					<div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">付费至：</label>
+						<div class="col-sm-2 col-lg-2">
+								<select class="form-control" name="payweid" id="payweid">
+									<option value="0">请选择收款账户</option>
+									{loop $payweid $row}
+									<option value="{$row['uniacid']}" {if $item['payweid']==$row['uniacid']}selected{/if}>{$row['name']}</option>
+									{/loop}
+								</select>
+								<div class="help-block">付费至指定公众号设置的支付方式内，不设置这付费至当前公众号</div>
+						</div>
+					</div>
+					{else}
+						<input id="payweid" type="hidden" name="payweid" value="{$item['payweid']}">	
+					{/if}					
+					<div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">有效期</label>
+						<div class="col-sm-9">
+							<div class="input-group">
+								<input type="text" name="days" class="form-control" value="{$item['days']}" />
+							</div>
+							<span class="help-block">自每次购买付费时间开始计算天数，如时间到了可续费继续购买,购买后按此时间叠加</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">是否允许试看</label>
+						<div class="col-sm-9">
+							<label for="isshow5" class="radio-inline"><input type="radio" name="is_try" value="1" id="isshow5" {if empty($item) || $item['is_try'] == 1}checked="true"{/if} /> 允许</label>
+							&nbsp;&nbsp;&nbsp
+							<label for="isshow6" class="radio-inline"><input type="radio" name="is_try" value="2" id="isshow6"  {if !empty($item) && $item['is_try'] == 2}checked="true"{/if} /> 不允许</label>
+							<span class="help-block">如启用单独收费,本画面需单独购买,不与缴费项目中关联实时画面功能的收费项目冲突</span>
+						</div>
+					</div>
+					<div id="credit-status3" {if empty($item) || $item['is_try'] == 1}style="display:block"{else}style="display:none"{/if}>
+						<div class="form-group">
+							<label class="col-xs-12 col-sm-3 col-md-2 control-label">试看时间</label>
+							<div class="col-sm-9">
+								<div class="input-group">
+									<input type="text" name="try_time" class="form-control" value="{$item['try_time']}" />秒
+								</div>
+								<span class="help-block">注意:试看功能只对IOS设备有效，安卓设备无试看功能(程序猿大大表示很无奈)</span>
+							</div>
+						</div>					
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">监控可用时间段1</label>
+					<div class="col-sm-9 col-xs-9 col-md-4">
+						<div class="input-group clockpicker" style="margin-bottom: 15px">
+							{php echo tpl_form_field_clock('starttime1', $item['starttime1'])}
+							<span class="input-group-addon">至</span>
+							{php echo tpl_form_field_clock('endtime1', $item['endtime1'])}
+							<span class="input-group-addon"></span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">监控可用时间段2</label>
+					<div class="col-sm-9 col-xs-9 col-md-4">
+						<div class="input-group clockpicker" style="margin-bottom: 15px">
+							{php echo tpl_form_field_clock('starttime2', $item['starttime2'])}
+							<span class="input-group-addon">至</span>
+							{php echo tpl_form_field_clock('endtime2', $item['endtime2'])}
+							<span class="input-group-addon"></span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">监控可用时间段3</label>
+					<div class="col-sm-9 col-xs-9 col-md-4">
+						<div class="input-group clockpicker" style="margin-bottom: 15px">
+							{php echo tpl_form_field_clock('starttime3', $item['starttime3'])}
+							<span class="input-group-addon">至</span>
+							{php echo tpl_form_field_clock('endtime3', $item['endtime3'])}
+							<span class="input-group-addon"></span>
+						</div>
+						<span class="help-block">若开始时间和结束时间相同则该时段不可用</span>
+					</div>
+				</div>
+				
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">类型</label>
+                    <div class="col-sm-9">
+                        <label for="isshow3" class="radio-inline"><input type="radio" name="videotype" value="1" id="isshow3" {if empty($item['videotype']) || $item['videotype'] == 1}checked="true"{/if} /> 指定班级</label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label for="isshow4" class="radio-inline"><input type="radio" name="videotype" value="2" id="isshow4"  {if !empty($item) && $item['videotype'] == 2}checked="true"{/if} /> 公共区域</label>
+                        <span class="help-block">指定班级或者设定为全校可看</span>
+                    </div>
+                </div>
+				<div id="credit-status1" {if empty($item['videotype']) || $item['videotype'] == 1}style="display:block"{else}style="display:none"{/if}>
+					<div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">选择班级</label>
+						<div class="col-sm-9 col-xs-6">
+							<div class="input-group text-info">
+								<label class="checkbox-inline"><input type="checkbox" class="check_all" />全选</label>
+								{loop $banji $uni}
+								{php $is = $this->uniarr($uniarr,$uni['sid']);}
+										<label for="uni_{$uni['sid']}" class="checkbox-inline">
+										<input id="uni_{$uni['sid']}" type="checkbox" name="arr[]" value="{$uni['sid']}"{if ($is)}checked="checked"{/if}> {$uni['sname']}
+										</label>
+								{/loop}
+							</div>
+							<div class="help-block">选择要应用到的班级,指定的班级才能查看本画面</div>
+						</div>
+					</div>
+				</div>	
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">允许评论</label>
+                    <div class="col-sm-9">
+                        <label for="isshow1" class="radio-inline"><input type="radio" name="allowpy" value="1" {if empty($item) || $item['allowpy'] == 1}checked="true"{/if} /> 允许</label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label for="isshow2" class="radio-inline"><input type="radio" name="allowpy" value="2" {if !empty($item) && $item['allowpy'] == 2}checked="true"{/if} /> 拒绝</label>
+                        <span class="help-block"></span>
+                    </div>
+                </div>				
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">点击量</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <input type="text" name="click" class="form-control" value="{$item['click']}" />
+							<span class="help-block">可修改</span>
+                        </div>
+                    </div>
+                </div>				
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">视频描述</label>
+                    <div class="col-sm-9">
+                        <textarea style="height:150px;" class="form-control richtext" name="conet" cols="70">{$item['conet']}</textarea>
+                        <span class="help-block">可为空,前端暂未调用</span>
+                    </div>
+                </div>		   
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+            <input type="hidden" name="token" value="{$_W['token']}" />
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    $(".check_all").click(function(){
+        var checked = $(this).get(0).checked;
+        $("input[type=checkbox]").attr("checked",checked);
+    });
+	$('#isshow1').click(function(){
+		$('#credit-status2').show();
+	});
+	$('#isshow2').click(function(){
+		$('#credit-status2').hide();
+	});	
+	$('#isshow3').click(function(){
+		$('#credit-status1').show();
+	});
+	$('#isshow4').click(function(){
+		$('#credit-status1').hide();
+	});
+	$('#isshow5').click(function(){
+		$('#credit-status3').show();
+	});
+	$('#isshow6').click(function(){
+		$('#credit-status3').hide();
+	});	
+</script>	
+{elseif $operation == 'pllist'}
+<div class="panel panel-info">
+	<div class="panel-heading"><a class="btn btn-primary" href="javascript:history.go(-1);"><i class="fa fa-tasks"></i>返回列表</a></div>
+</div>
+<div class="panel panel-default">
+	<div class="table-responsive panel-body">
+		<table class="table">
+			<thead>
+				<tr>
+					<th class='with-checkbox' style="width: 5%;"><input type="checkbox" class="check_all" /></th>
+					<th style="width:8%">发表</th>
+					<th style="width:40%;">内容</th>
+					<th style="width:10%;">发布时间</th>
+					<!--th style="width:150px; text-align:right;">操作</th-->
+				</tr>
+			</thead>
+			<tbody>
+				{loop $allpl $item}
+				<tr>
+					<td class="with-checkbox"><input type="checkbox" name="check" value="{$item['id']}"></td>
+					<td>
+						<span class="label label-success"><i class="fa fa-user"></i></span>【{$item['name']}】
+					</td>	
+					<td>
+						{$item['conet']}
+					</td>					
+					<td>
+						<span class="label label-success">{php echo date('Y-m-d H:i:s',$item['createtime'])}</span>
+					</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+		<tr>
+			<td colspan="10">
+				<input name="token" type="hidden" value="{$_W['token']}" />
+				<input type="button" class="btn btn-primary qx_delete_pl" name="btndeleteall" value="批量删除" />
+			</td>
+		</tr>		
+	</div>
+</div>
+{$pager}
+{/if}
+<script type="text/javascript">
+$(function(){
+	{if !(IsHasQx($tid_global,1000305,1,$schoolid))}
+		$(".qx_delete_pl").hide();
+	{/if}
+
+    $(".check_all").click(function(){
+        var checked = $(this).get(0).checked;
+        $("input[type=checkbox]").attr("checked",checked);
+    });
+
+    $("input[name=btndeleteall]").click(function(){
+        var check = $("input[type=checkbox][class!=check_all]:checked");
+        if(check.length < 1){
+            alert('请选择要删除的内容!');
+            return false;
+        }
+        if(confirm("确认要删除选择的内容?")){
+            var id = new Array();
+            check.each(function(i){
+                id[i] = $(this).val();
+            });
+            var url = "{php echo $this->createWebUrl('allcamera', array('op' => 'deleteall','schoolid' => $schoolid))}";
+            $.post(
+                url,
+                {idArr:id},
+                function(data){
+                    if(data.result){
+					    alert(data.msg);
+                        location.reload();
+                    }else{
+                        alert(data.msg);
+                    }
+                },'json'
+            );
+        }
+    });
+
+});
+</script>
+{template 'public/footer'}

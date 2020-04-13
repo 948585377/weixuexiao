@@ -1,0 +1,152 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {margin:0;padding:0;font-family:"微软雅黑";}
+ul,ol,li{list-style:none;}
+a{text-decoration:none;}
+.all{width:100%;height:auto;}
+.cl{clear:both;}
+.noBB{border-bottom:none !important;}
+.today{background:#efefef !important;}
+
+.babyBrief{width:90%;height:60px;background:white;padding:20px 5%;position: relative;}
+.babyBrief .l{width:60px;height:60px;float:left;}
+.babyBrief .l .img{width:100%;height:100%;}
+.babyBrief .l .img img{width:100%;height:100%;border-radius:50%;}
+.babyBrief .r{margin-left:70px;margin-right:0;height:60px;}
+.babyBrief .r .name{width:100%;height:20px;}
+.babyBrief .r .name span{height:20px;line-height:20px;font-size:20px;float:left;display:inline-block;}
+.babyBrief .r .name i{height:30px;width:30px;font-size:20px;float:left;background:url(../images/ico_girl.png) no-repeat center;margin-top:-10px;}
+.babyBrief .r .info{width:100%;height:40px;}
+.babyBrief .r .info i{height:40px;width:30px;float:left;background:url(../images/ico_clock_small.png) no-repeat center;margin-right:5px;}
+.babyBrief .r .info span{height:40px;line-height:18px;font-size:14px;color:#999;}
+.babyBrief .r .info span font{font-size:20px;font-style:italic;color:#14c682;margin:0 3px;}
+.tabbutton{position: absolute;right: 30px;top: 25px;}
+.tabbutton button{background-color: #14c682;border: none;color: #fff;height: 25px;width: 75px;border-radius: 5px;font-size: 15px;font-family: "微软雅黑";}
+
+.timeList{width:100%;height:auto;border-top:1px solid #b1b1b1;background-color: #efefef;border-bottom: 1px solid #b1b1b1;}
+.timeList .paxyData{
+	font-size: 0;
+	margin: 0 0.5%;
+	height: 250px;
+}
+.timeList .div-img{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.timeList .div-time{
+	color: #8c8c8c;
+}
+
+.timeList .paxy-il .checked .div-time{
+	color: #000000;
+	font-weight: bold;
+}
+
+.timeList .div-img img{
+	width:25px;
+}
+
+.timeList .weekDate{
+	border-top: 1px solid #b1b1b1;
+	background-color: #f1f0f6;
+}
+
+.weekDate .checked em{    
+	display: block;
+    border-width: 13px;
+    position: absolute;
+    bottom: 20px;
+    left: 19%;
+    border-style: dashed dashed solid;
+    border-color: transparent transparent #b1b1b1;
+    font-size: 0;
+    line-height: 0;
+}
+.weekDate .checked span{
+	display: block;
+    border-width: 13px;
+    position: absolute;
+    bottom: 18px;
+    left: 19%;
+    border-style: dashed dashed solid;
+    border-color: transparent transparent #f1f0f6;
+    font-size: 0;
+    line-height: 0;
+}
+
+.timeList .weekDate .week{
+	margin: 4px 0;
+	font-size: 14px;
+	display: inline-block;
+	width: 13%;
+	position: relative;
+}
+
+.timeList .weekDate .checked{
+	font-weight: bold;
+}
+
+.timeList  .interval{
+	font-size: 14px;
+    width: 16.5%;
+    text-align: center;
+    float: left;
+    position: relative;
+    height: 250px;
+}
+
+.timeList  .interval .paxy{
+	float: left;
+    position: absolute;
+    left: 17%;
+}
+
+.timeList  .nointerval {
+	font-size: 16px;
+    text-align: center;
+    line-height: 500%;
+}
+
+.viewPushBox{
+	width: 70%;
+	margin: 10px 15%;
+}
+.viewPushBox .pushImg{
+	width:43%;
+	display: inline-block;
+}
+.viewPushBox .pushImg img{
+	width:100%;
+	
+}
+.viewPushBox .pushDate{
+	width:54%;
+	display: inline-block;
+	float: right;
+	margin-top: 8px;
+}
+
+.viewPushBox .stuState i{
+	margin: 0 5%;
+}
+.viewPushBox .temperature,.height,.weight{
+	margin-bottom: 5px;
+	text-align: left;
+	margin-left: 11%;
+	color: #8c8c8c;
+	font-size: 13px;
+	font-weight: 500;
+}
+.pushTip{
+	font-weight: 500;
+	font-size: 14px;
+	line-height:1.5;
+	color: #8c8c8c;
+}
+
+.paxyData .paxy-il{
+	display: none;
+}
+.paxyData .checked{
+	display: block;
+	z-index: 5;
+}

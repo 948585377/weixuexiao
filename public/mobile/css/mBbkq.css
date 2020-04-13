@@ -1,0 +1,167 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {margin:0;padding:0;font-family:"微软雅黑";}
+ul,ol,li{list-style:none;}
+a{text-decoration:none;}
+.all{width:100%;height:auto;}
+.cl{clear:both;}
+.noBB{border-bottom:none !important;}
+.today{background:#efefef !important;}
+
+.babyBrief{width:90%;height:60px;background:white;padding:20px 5%;position: relative;}
+.babyBrief .l{width:60px;height:60px;float:left;}
+.babyBrief .l .img{width:100%;height:100%;}
+.babyBrief .l .img img{width:100%;height:100%;border-radius:50%;}
+.babyBrief .r{margin-left:70px;margin-right:0;height:60px;}
+.babyBrief .r .name{width:100%;height:20px;}
+.babyBrief .r .name span{height:20px;line-height:20px;font-size:20px;float:left;display:inline-block;}
+.babyBrief .r .info{width:100%;height:40px;}
+.babyBrief .r .info i{height:40px;width:30px;float:left;background:url(../images/ico_clock_small.png) no-repeat center;margin-right:5px;}
+.babyBrief .r .info span{height:40px;line-height:18px;font-size:14px;font-weight:blod;color:#F96E1A;}
+.babyBrief .r .info span font{font-size:20px;font-style:italic;color:#14c682;margin:0 3px;}
+.tabbutton{position: absolute;right: 20px;top: 16px;}
+.tabbutton button{background-color: #14c682;border: none;color: #fff;height: 25px;width: 90px;border-radius: 5px;font-size: 15px;font-family: "微软雅黑";}
+.user_info{position:fixed; left:0; right:0; top:0; bottom:0;-webkit-box-sizing:border-box; box-sizing:border-box; background-color:rgba(0,0,0,.53); text-align:center; z-index:9999;font-size:20px;color:#fe6700;}
+.user_info>div{ position:absolute; left:6%; right:6%; top:230px; padding: 0 20px; background-color:#fff; padding-bottom:33px; padding-top: 45px;}
+.user_name{ text-align: left; color:#666; font-size: 14px;}
+.user_name > select{ display:block;width:100%;height:22px; padding: 0 10px; margin-bottom: 10px; border:1px solid #ccc;-webkit-box-sizing: border-box; box-sizing: border-box;text-align: left; color:#666; font-size: 14px;}
+.user_name > input{display:block;width:100%;height:22px; padding: 0 10px; margin-bottom: 10px; border:1px solid #ccc;-webkit-box-sizing: border-box; box-sizing: border-box;text-align: left; color:#666; font-size: 14px;}
+.user_name > input::-webkit-input-placeholder{ color: #666;font:15px "黑体";}
+.user_info>div>span{display:inline-block;width:30px;height:30px;background:#fff;font-size:24px;color:#aaa;-webkit-border-radius:100%;-moz-border-radius:100%;-o-border-radius:100%;border-radius:100%;line-height:30px;
+	text-align:center;
+	position:absolute;
+	top:-15px;
+	right:-15px;
+	font-family:宋体b8b\4f53;
+	cursor:default;
+}
+.timeList{width:100%;height:auto;border-top:1px solid #b1b1b1;background-color: #efefef;border-bottom: 1px solid #b1b1b1;}
+.timeList .paxyData{
+	font-size: 0;
+	margin: 0 0.5%;
+	height: 150px;
+}
+.timeList .div-img{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.timeList .div-time{
+	color: #8c8c8c;
+}
+
+.timeList .paxy-il .checked .div-time{
+	color: #000000;
+	font-weight: bold;
+}
+
+.timeList .div-img img{
+	width:25px;
+}
+
+.timeList .weekDate{
+	border-top: 1px solid #b1b1b1;
+	background-color: #f1f0f6;
+}
+
+.weekDate .checked em{    
+	display: block;
+    border-width: 13px;
+    position: absolute;
+    bottom: 20px;
+    left: 19%;
+    border-style: dashed dashed solid;
+    border-color: transparent transparent #b1b1b1;
+    font-size: 0;
+    line-height: 0;
+}
+.weekDate .checked span{
+	display: block;
+    border-width: 13px;
+    position: absolute;
+    bottom: 18px;
+    left: 19%;
+    border-style: dashed dashed solid;
+    border-color: transparent transparent #f1f0f6;
+    font-size: 0;
+    line-height: 0;
+}
+
+.timeList .weekDate .week{
+	margin: 4px 0;
+	font-size: 14px;
+	display: inline-block;
+	width: 13%;
+	position: relative;
+}
+
+.timeList .weekDate .checked{
+	font-weight: bold;
+}
+
+.timeList  .interval{
+	font-size: 14px;
+    width: 16.5%;
+    text-align: center;
+    float: left;
+    position: relative;
+    height: 150px;
+}
+
+
+.timeList  .interval .paxy{
+	float: left;
+    position: absolute;
+    left: 17%;
+}
+
+.timeList  .nointerval {
+	font-size: 16px;
+    text-align: center;
+    line-height: 500%;
+}
+
+.viewPushBox{
+    width: 100%;
+    display: inline-block;
+}
+.viewPushBox .pushImg{
+	width:43%;
+	display: inline-block;
+	float: left;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.viewPushBox .pushImg img{
+	width:100%;
+	
+}
+.viewPushBox .pushDate{
+	width:48%;
+	display: inline-block;
+}
+
+.viewPushBox .stuState i{
+	margin: 0 5%;
+}
+.viewPushBox .temperature,.height,.weight{
+	margin-bottom: 5px;
+	text-align: left;
+	margin-left: 11%;
+	color: #8c8c8c;
+	font-size: 13px;
+	font-weight: 500;
+}
+.pushTip{
+	font-weight: 500;
+	font-size: 14px;
+	line-height:1.5;
+	color: #8c8c8c;
+}
+
+.paxyData .paxy-il{
+	display: none;
+}
+.paxyData .checked{
+    display: inline-block;
+    background-color: #C7E4D9;
+    z-index: 5;
+}

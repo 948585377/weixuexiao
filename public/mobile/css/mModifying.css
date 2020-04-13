@@ -1,0 +1,150 @@
+@CHARSET "UTF-8";
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {margin:0;padding:0;font-family:"微软雅黑";}
+ul,ol,li{list-style:none;}
+a{text-decoration:none;}
+.all{width:100%;height:auto;}
+.cl{clear:both;}
+body{background: #f0eff5;}
+.nameLabel{margin-right:50px !important;text-align: left !important;}
+label#name{display: block;width:96%;padding:0 2%;}
+
+.photo{width:100%;height:auto;}
+.photo img{width:100%;}
+.submitInfo{width:100%;height:auto;position:relative;}
+.submitInfo table{width:100%;}
+.submitInfo table tr td{width:90%;padding:10px 5%;}
+.submitInfo table tr td.bLine{border-bottom:1px solid #cccccc;padding:0;}
+.submitInfo table tr td.bLine a{display:block;width:90%;height:40px;line-height:40px;color:#666666;padding:0 5%;}
+.submitInfo table tr td.bLine a span.l{float:left;}
+.submitInfo table tr td.bLine a span.r{float:right;}
+.submitInfo table tr td textarea{width:100%;padding:5px 2%;height:150px;border:1px solid #cccccc;}
+.submitInfo table tr td button{width:100%;text-align:center;border:none;border-radius:5px;font-size:18px;font-family:"微软雅黑";}
+.submitInfo table tr td .btn{width:100%;text-align:center;}
+.submitInfo table tr td button.submit{color:white;background:#14c682;height:50px;}
+.submitInfo table tr td ul{width:100%;height:auto;}
+.submitInfo table tr td ul li{width:100%;height:50px;line-height:50px;}
+.submitInfo table tr td ul li span{color:#333333;margin-right:10px;}
+.submitInfo table tr td ul li input{border:1px solid #cccccc;height:30px;line-height:30px;padding:0 1px;}
+
+.prompt{display:none;width:220px;height:80px;padding:10px;position:fixed;z-index:102;top:50%;left:50%;background:#f3f3f3;margin-top:-40px;margin-left:-120px;border:1px solid #cccccc;}
+.prompt .t{width:100%;height:40px;text-align:center;color:#666666;margin-top:3px;}
+.prompt .b{width:100%;height:40px;text-align:center;}
+.prompt .b button{width:80px;height:25px;border-radius:2px;border:none;background:#14c682;color:white;margin-top:7px;}
+
+
+.infoBox{background: #fff;border: 1px solid #e1e1e1;}
+.infoDiv{height:36px;line-height:36px;position:relative;background:white;}
+.infoDiv span.l{position:absolute;left:10px;top:0;width:80px;font-size:16px;color:#8f8f91;}
+.infoDiv span.c{margin:0 0 0 95px;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;font-size:16px;text-align:right;position: relative;height:100%;}
+.infoDiv span.c input[type="text"]{float: left;width: 96%;margin: 3px 2%;height: 30px;border: 1px solid #e1e1e1;border-radius: 3px;font-size: 14px;background-attachment: fixed;}
+.infoDiv span.c select{float: left;width: 96%;margin: 3px 2%;height: 30px;border: 1px solid #e1e1e1;border-radius: 3px;font-size: 14px;background-attachment: fixed;background-color: white;}
+.infoDiv span.c textarea{float: left;width: 96%;height: 114px;background-attachment: fixed;margin:3px 2%;font-size: 16px;border: 1px solid #e1e1e1;border-radius: 0;}
+.infoDiv span.c input[type="tel"]{border: 0px;height: 100%;text-align:right;font-size:16px;width:90%;}
+.infoDiv span.c label{float:center;width:50px;height:100%;vertical-align:top;}
+.infoDiv span.r{position:absolute;right:10px;top:3px;width:50px;height:30px;line-height:30px;display:block;text-align:center;border:1px solid #d0d0d0;border-radius:5px 5px 5px 5px;}
+.infoDiv span.t{position:absolute;right:80px;top:3px;width:50px;height:30px;line-height:30px;display:block;text-align:center;border:1px solid #d0d0d0;border-radius:5px 5px 5px 5px;}
+.infoDiv span.r img{height:70%;margin:10%;cursor:pointer;}
+.height-2{height:120px;}
+
+.divSpacing{margin-top:3px;}
+.divHr{border-bottom: 1px solid #e1e1e1;margin-left: 10px;}
+.divHrRight{border-bottom: 1px solid #e1e1e1;margin-left: 10px;margin-right: 10px}
+.submitBtn {margin:10px 10px;height:40px;position:relative;}
+.submitBtn button{position:absolute;width: 100%;height: 40px;line-height: 40px;text-align: center;border: none;border-radius: 5px;color: #fff;font-size: 18px;font-family:"微软雅黑";}
+
+.parentBox{padding:0 10px;margin:20px 0;overflow:hidden;background:#fff;}
+.parentBox .parentBoxTitle{width:100%;height:40px;line-height:40px;border-bottom:1px solid #e1e1e1;}
+.parentBox ul{width:100%;overflow:hidden;}
+.parentBox ul li{width:100%;overflow:hidden;position:relative;}
+.parentBox ul li:last-child{border:none;}
+.parentBox ul li span{height:30px;line-height:30px;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.parentBox ul li span.l{position:absolute;left:0;top:10px;width:40px;}
+.parentBox ul li span.c{margin-left:50px;margin-right:120px;}
+.parentBox ul li span.r{position:absolute;right:0;top:10px;}
+
+.parentInfo{width:100%;padding:10px 0;position:relative;border-bottom:1px solid #e7e7eb;}
+.parentHeader{position:absolute;width:65px;height:65px;border-radius:50%;left:3px;top:50%;margin-top:-33px;}
+.parentHeader img{width:100%;height:100%;border-radius:50%;}
+
+.parentInfoCenter{margin-left:80px;margin-right:20px;}
+.parentInfo > a{position:absolute;right:0;top:50%;margin-top:-10px;height:20px;display:block;width:20px;}
+.parentInfo > a span{float:left;height:20px;line-height:20px;color:#17b056;}
+.parentInfo > a i{float:right;height:20px;}
+.parentInfo > a i img{height:100%;}
+
+.parentName{width:100%;overflow:hidden;}
+.parentName > label{float:left;color:#333;font-size:16px;font-weight:bold;line-height:30px;max-width:80px;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+
+.parentName .changeBtn{float:left;display:inline-block;position:relative;line-height:30px;height:40px;}
+.parentName .changeBtn span{color:#17b056;cursor:pointer;font-size:16px;}
+.parentName .changeBtn select{position:absolute;width:100%;height:100%;left:0;top:0;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;cursor:pointer;}
+
+.parentName .defaultContact{display:block;width:50px;height:30px;line-height:30px;float:left;text-align: center;border-radius:4px;background-color: #fc5b5b;margin-left:10px;}
+.parentName .bingding{display:block;float:right;background-color:#17b056;color:white;border-radius:5px;height:20px;margin:5px 0;line-height:20px;font-size:12px;width:40px;text-align:center;}
+.parentName .unbingding{display:block;float:right;background-color:#eee;border-radius:5px;height:20px;margin:5px 0;line-height:20px;font-size:12px;width:40px;text-align:center;}
+
+.parentNexusAndPhone{width:100%;line-height:30px;overflow:hidden;}
+.parentNexusAndPhone span{float:left;display:inline-block;color:#999;}
+.parentNexusAndPhone span.phone{margin-left:10px;}
+
+.infoDiv span.c input.inp_rad{
+	content: '';
+	display: block;
+	position: absolute;
+	z-index: 1;
+	width: 20px;
+	height: 20px;
+	background: #cfcfcf;
+	-webkit-border-radius: 10px;
+	top:5px;
+}
+
+.inp_rad:checked::after {
+	background: #14c682;
+}
+.inp_rad:after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 5px;
+	bottom: 5px;
+	z-index: 2;
+	width: 10px;
+	height: 10px;
+	background: #999;
+	-webkit-border-radius: 5px;
+}
+
+.inp_rad:before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 1;
+	width: 20px;
+	height: 20px;
+	background: #cfcfcf;
+	-webkit-border-radius: 10px;
+}
+
+.inp_rad {
+margin: 3px 5px;
+float: left;
+}
+.inp_rad {
+display: inline-block;
+-webkit-appearance: none;
+border: none;
+width: 22px;
+height: 22px;
+position: relative;
+background: 0 0;
+}
+
+.c_g {
+	color: #14c682!important;
+}
+.readonly{
+	background-color: #c5c5c5;
+}
