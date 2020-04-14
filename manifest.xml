@@ -2,7 +2,7 @@
 <manifest xmlns="http://www.nyabc.net" versionCode="0.8,1.0">
 	<application setting="false">
 		<name><![CDATA[微教育公众号版]]></name>
-		<identifie><![CDATA[fm_jiaoyu]]></identifie>
+		<identifie><![CDATA[weixuexiao]]></identifie>
 		<version><![CDATA[3.12.55]]></version>
 		<type><![CDATA[business]]></type>
 		<ability><![CDATA[教育行业通用模块，适用于培训学校，幼儿园，具备成绩查询，教师管理，课程安排等功能]]></ability>
